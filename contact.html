@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Rachit Dhakal's Portfolio</title>
+    <link rel="stylesheet" href="design.css">
+    <link rel="stylesheet" href="contact.css">
+</head>
+
+<body>
+    <img class="icons" id="hamburger" src="/Img/hamburger.png" alt="Hamburger icon">
+    <img class="icons" id="cancle" src="/Img/Cancel.png" alt="cancle icon">
+
+    <div id="container">
+        <div id="sidebar" class="sidebarAnimate">
+            <nav>
+                <ul>
+                    <li><a href="/index.html">Home</a></li>
+                    <li><a href="#">Services</a></li>
+                    <li><a href="#">Gallery</a></li>
+                    <li><a href="/contact.html">Contact Me</a></li>
+                    <li><a href="#">Download CV</a></li>
+                </ul>
+            </nav>
+        </div>
+        <div id="mainContent">
+            <form>
+                <P>Contact me for <b>Work / General</b> Enquiries</P>
+                <div class="formChild">
+                    <label for="name">Name : </label>
+                    <input type="text" id="name" placeholder="Rachit Dhakal">
+                </div>
+                <div class="formChild">
+                    <label for="email">Email : </label>
+                    <input type="email" id="email" placeholder="rachit@dhakal.com">
+                </div>
+                <div class="formChild">
+                    <label for="phone">Phone : </label>
+                    <input type="text" id="phone" placeholder="9800000000">
+                </div>
+                <div class="formChild">
+                    <label for="message">Message : </label>
+                    <textarea id="message" cols="30" rows="10" placeholder="Write your message here."></textarea>
+                </div>
+                <div>
+                    <button type="submit" id="submitButton" class="primaryButton">Submit</button>
+                </div>
+            </form>
+        </div>
+    </div>
+    <script src="brain.js"></script>
+</body>
+
+</html>

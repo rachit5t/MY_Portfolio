@@ -1,23 +1,82 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Rachit Dhakal's Portfolio</title>
-    <style>
-        #para{
-            position: absolute;
-            top: 45%;
-            left: 45%;
-            background-color: black;
-            color: white;
-        }
-    </style>
+    <link rel="stylesheet" href="design.css">
 </head>
+
 <body>
-    <p id="para">
-        Hello World!
-    </p>
+    <img class="icons" id="hamburger" src="/Img/hamburger.png" alt="Hamburger icon">
+    <img class="icons" id="cancle" src="/Img/Cancel.png" alt="cancle icon">
+
+    <div id="container">
+        <div id="sidebar" class="sidebarAnimate">
+            <nav>
+                <ul>
+                    <li><a href="/index.html">Home</a></li>
+                    <li><a href="#">Services</a></li>
+                    <li><a href="#">Gallery</a></li>
+                    <li><a href="/contact.html">Contact Me</a></li>
+                    <li><a href="#">Download CV</a></li>
+                </ul>
+            </nav>
+        </div>
+        <div id="mainContent">
+            <div id="devInfoContainer">
+                <div id="devInfo">
+                    <div>Hello there,</div>
+                    <div>I am <b>Rachit Dhakal</b></div>
+                    <div>
+                        Developer, User, Hacker
+                    </div>
+                    <div>
+                        <button onclick="rickRoll()" class="primaryButton" id="downloadCV">
+                            Download CV
+                        </button>
+                    </div>
+                </div>
+                <div id="devPhoto">
+                    <img src="/Img/myPhoto.png" alt="Photo Of the developer.">
+                </div>
+            </div>
+            <div style="height: 3px; width:100%; background-color:aqua;">
+
+            </div>
+            <div id="aboutMeContainer">
+                <div id="aboutMe">
+                    <h1>About Me</h1>
+                    <p>I am a student of information technology. Currently enrolled in a BSc. IT program by Asia Pacific University. I enjoy coding and problem solving.</p>
+                </div>
+                <div id="skillContainer">
+                    <h1 id="skill">My Skills</h1>
+                    <div class="indivisualSkill">
+                        <p class="skillName">HTML</p>
+                        <div class="skillBar">
+                            <div class="skillPercentage" style="max-width:70%;"></div>
+                        </div>
+                    </div>
+                    <div class="indivisualSkill">
+                        <p class="skillName">CSS</p>
+                        <div class="skillBar">
+                            <div class="skillPercentage" style="max-width:50%;"></div>
+                        </div>
+                    </div>
+                    <div class="indivisualSkill">
+                        <p class="skillName">JAVASCRIPT</p>
+                        <div class="skillBar">
+                            <div class="skillPercentage" style="max-width:30%;"></div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+    <script src="brain.js"></script>
 </body>
+
 </html>

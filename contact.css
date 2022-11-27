@@ -1,0 +1,51 @@
+@import url('https://fonts.googleapis.com/css2?family=Lato&display=swap');
+
+#mainContent{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    /* justify-content: center; */
+}
+
+#mainContent p{
+    margin: 15px;
+    padding: 5px;
+    text-align: center;
+    font-family: 'Lato', sans-serif;
+}
+
+#mainContent p b{
+    color: rgb(235, 17, 17);
+    font-size: larger;
+}
+ 
+
+.formChild{
+    display: flex;
+    flex-direction: column;
+    margin: 15px;
+    padding: 5px;;
+}
+
+.formChild input{
+    padding: 5px;
+    border: 2px solid blueviolet; 
+    width: 30vw;
+    border-radius: 13px;
+}
+
+#message{
+    height: 30vh;
+    width: 30vw;
+    border: 2px solid blueviolet; 
+    border-radius: 13px;
+    padding: 5px;
+
+}
+
+#submitButton{
+    margin-top: 5px;
+    margin-bottom: 15px;
+    margin-left: 45%;
+    
+}

@@ -1,0 +1,175 @@
+@import url('https://fonts.googleapis.com/css2?family=Oswald:wght@200&family=Roboto:wght@100&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Dosis:wght@300&display=swap');
+
+
+* {
+    margin: 0px;
+    padding: 0px;
+    box-sizing: border-box;
+}
+
+.icons{
+    position: absolute;
+    cursor: pointer;
+}
+
+#hamburger{
+    top: 10px;
+    left: 10px;
+    height: 20px;
+}
+
+#cancle{
+    top: 13px;
+    left: 123px;
+    height: 15px;;
+}
+
+#container {
+    display: flex;
+}
+
+#sidebar {
+    background-color: rgb(207, 220, 231);
+    width: 149px;
+    height: 100vh;
+    transition: transform 0.3s;
+}
+
+.sidebarAnimate {
+    transform: translate(-148px,0px);
+    position: absolute;
+}
+
+#sidebar nav {
+    padding: 28px;
+}
+
+#sidebar nav li {
+    padding: 30px 0px;
+    list-style: none;
+    
+}
+
+#sidebar nav li a{
+    text-decoration: none;
+    color: black;
+    
+}
+
+#mainContent {
+    /* background-color: aqua; */
+    width: 88vw;
+    height: 100vh;
+}
+
+#devInfoContainer{
+    /* background-color: blue; */
+    height: 50vh;
+    width: 80vw;
+    display: flex;
+    margin: 30px auto;
+}
+
+#devInfo{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: 50px;
+    width: 50%;
+    
+}
+
+#devInfo > div{
+    margin: 5px;
+}
+
+#devInfo > div:nth-child(1){
+    font-family: 'Oswald', sans-serif;
+    font-size: 40px;
+}
+
+#devInfo > div:nth-child(2){
+    font-family: 'Playfair Display', serif;
+    font-size: 35px;
+}
+
+#devInfo > div:nth-child(2) b{
+    color: rgb(240, 18, 18);
+    font-size: larger;
+}
+
+#devInfo > div:nth-child(3){
+    font-family: 'Dosis', sans-serif;
+    font-size: 30px;
+}
+
+#downloadCV a{
+    text-decoration: none;
+    color: black;
+}
+
+#devPhoto{
+    height: 100%;
+    /* background-color: brown; */
+    align-self: flex-end;
+    width: 50%;
+}
+
+#devPhoto img{
+    height: 100%;
+}
+
+#aboutMeContainer{
+    margin: 15px 49.673px;
+    padding: 0px 50px 50px 50px;
+}
+
+#aboutMe, #skillContainer{
+    margin-top: 20px;
+}
+
+
+.indivisualSkill{
+    margin: 15px;
+}
+
+.skillBar{
+    background-color: rgb(56, 55, 55);
+    width: 400px;
+    height: 10px;
+    position: relative;
+    border-radius: 10px;
+}
+.skillPercentage{
+    background-color: brown;
+    height: 100%;
+    position: absolute;
+    border-radius: 10px;
+}
+
+@keyframes skillPerAnimate{
+    from{
+        width: 0%;
+    }
+
+    to{
+        width: 100%;
+    }
+}
+/* Default Styles Library */
+.primaryButton{
+    border:2px solid red;
+    color: black;
+    font-weight: bolder;
+    border-radius: 13px;
+    padding: 5px;
+}
+
+.primaryButton:hover{
+    background-color: black;
+    color: white;
+    border-color: rgb(0, 255, 0);
+    cursor: pointer;
+}
