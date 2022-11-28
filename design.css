@@ -21,6 +21,7 @@
 }
 
 #cancle{
+    position: fixed;
     top: 13px;
     left: 123px;
     height: 15px;
@@ -41,6 +42,11 @@
 .sidebarAnimate {
     transform: translate(-148px,0px);
     position: absolute;
+}
+
+.sidebarAni{
+    position: sticky;
+    top: 0px;
 }
 
 #sidebar nav {
@@ -80,8 +86,9 @@
     display: flex;
     flex-direction: column;
     justify-content: center;
-    padding: 50px;
-    width: 462px;
+    padding: 0px;
+    width: 350px;
+    font-size: 5px;
     
 }
 
@@ -91,12 +98,12 @@
 
 #devInfo > div:nth-child(1){
     font-family: 'Oswald', sans-serif;
-    font-size: 40px;
+    font-size: 8em;
 }
 
 #devInfo > div:nth-child(2){
     font-family: 'Playfair Display', serif;
-    font-size: 35px;
+    font-size: 7em;
 }
 
 #devInfo > div:nth-child(2) b{
@@ -106,7 +113,7 @@
 
 #devInfo > div:nth-child(3){
     font-family: 'Dosis', sans-serif;
-    font-size: 30px;
+    font-size: 6em;
 }
 
 #downloadCV a{
@@ -201,8 +208,13 @@
     }
 }
 
-@media (max-width: 530px) {
+@media (max-width: 546px) {
     .skillBar{
         width: 230px;
     }
+
+    #devInfo{
+        font-size: 3.25px;
+    }
+    
 }
