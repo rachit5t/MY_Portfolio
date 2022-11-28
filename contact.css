@@ -31,12 +31,16 @@
     padding: 5px;
     border: 2px solid blueviolet; 
     width: 30vw;
+    min-width: 262px;
+    max-width: 394px;
     border-radius: 13px;
 }
 
 #message{
     height: 30vh;
     width: 30vw;
+    min-width: 262px;
+    max-width: 394px;
     border: 2px solid blueviolet; 
     border-radius: 13px;
     padding: 5px;
@@ -48,4 +52,11 @@
     margin-bottom: 15px;
     margin-left: 45%;
     
+}
+
+/* Media Query */
+@media (max-width: 865px) {
+    #submitButton{
+        margin-left : 38%;
+    }
 }

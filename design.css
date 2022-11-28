@@ -33,7 +33,8 @@
 }
 
 #sidebar {
-    background-color: rgb(207, 220, 231);
+    background-color: rgb(229 234 239);
+    border: solid #a7e3e7 2px;
     width: 149px;
     height: 100vh;
     transition: transform 0.3s;
@@ -50,19 +51,23 @@
 }
 
 #sidebar nav {
-    padding: 28px;
+    padding: 25px;
 }
 
 #sidebar nav li {
-    padding: 30px 0px;
-    list-style: none;
-    
+    padding: 25px 0px;
+    list-style: none; 
 }
 
 #sidebar nav li a{
     text-decoration: none;
     color: black;
-    
+    font-size: 17px;  
+    padding: 5px;
+}
+
+#sidebar nav li a:hover{
+    border-bottom: 2px solid rgb(54, 240, 54);
 }
 
 #mainContent {
