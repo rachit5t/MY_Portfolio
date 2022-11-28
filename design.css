@@ -60,14 +60,14 @@
 }
 
 #mainContent {
-    background-color: aqua;
+    /* background-color: aqua; */
     width: 88vw;
     display: flex;
     flex-direction: column;
 }
 
 #devInfoContainer{
-    background-color: blue;
+    /* background-color: blue; */
     /* height: 50vh; */
     width: 80vw;
     display: flex;
@@ -115,7 +115,7 @@
 }
 
 #devPhoto{
-    background-color: brown;
+    /* background-color: brown; */
     height: 200px;
 }
 
