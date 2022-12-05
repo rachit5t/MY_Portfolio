@@ -1,17 +1,18 @@
-document.querySelector('#cancle').style.display = "none";
-document.querySelector('#hamburger').addEventListener('click', () => {
-    sidebar.classList.toggle("sidebarAnimate");
-    hamburger.style.display = "none";
-    setTimeout(() => {
-        cancle.style.display = "inline";
-    }, 280);
+ham.addEventListener("click", ()=>{
+    nav.classList.add('activee');
+    mainContent.classList.add('mainRotate')
+    console.log("hello");
+    document.querySelector("html").style.overflow = "hidden"
+    navBar.classList.remove("navOff")
 });
 
-document.querySelector('#cancle').addEventListener('click', () => {
-    sidebar.classList.toggle("sidebarAnimate");
-    hamburger.style.display = "inline";
-    cancle.style.display = "none";
-});
+cancle.addEventListener("click", ()=>{
+    nav.classList.remove('activee');
+    mainContent.classList.remove('mainRotate')
+    document.querySelector("html").style.overflow = "visible"
+    navBar.classList.add("navOff")
+})
+
 
 function rickRoll() {
     window.location.replace("https://www.youtube.com/watch?v=JzvDoyW5u5g");
@@ -22,7 +23,7 @@ window.addEventListener('scroll', () => {
     var viewPortHeight = window.innerHeight;
     var getDiv = document.querySelectorAll(".skillPercentage")
     let i;
-    if (itemViewPortLocation < viewPortHeight - 150) {
+    if (itemViewPortLocation < viewPortHeight - 50) {
         i = 0;
         while (i <= getDiv.length) {
             getDiv[i].style.animation = "skillPerAnimate 5s forwards";
@@ -36,3 +37,5 @@ window.addEventListener('scroll', () => {
         }
     }
 });
+
+

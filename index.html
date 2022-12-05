@@ -10,70 +10,77 @@
 </head>
 
 <body>
-    <img class="icons" id="hamburger" src="/Img/hamburger.png" alt="Hamburger icon">
-    <img class="icons" id="cancle" src="/Img/Cancel.png" alt="cancle icon">
 
-    <div id="container">
-        <div id="sidebar" class="sidebarAni sidebarAnimate">
-            <nav>
-                <ul>
-                    <li><a href="/index.html">Home</a></li>
-                    <li><a href="#">Services</a></li>
-                    <li><a href="#">Gallery</a></li>
-                    <li><a href="/contact.html">Contact Me</a></li>
-                </ul>
-            </nav>
-        </div>
-        <div id="mainContent">
-            <div id="devInfoContainer">
-                <div id="devInfo">
-                    <div>Hello there,</div>
-                    <div>I am <b>Rachit Dhakal</b></div>
-                    <div>
-                        Developer, User, Hacker
-                    </div>
-                    <div>
-                        <button onclick="rickRoll()" class="primaryButton" id="downloadCV">
-                            Download CV
-                        </button>
-                    </div>
+    <div class="navigation" id="nav">
+        <div id="ham"><a href="#devInfoContainer">&#9776;</a></div>
+        <div id="cancle">&#128473;</div>
+    </div>
+
+
+    <div id="mainContent">
+        <div id="devInfoContainer">
+            <div id="devInfo">
+                <div>Hello there,</div>
+                <div>I am <b>Rachit Dhakal</b></div>
+                <div>
+                    Developer, User, Hacker
                 </div>
-                <div id="devPhoto">
-                    <img src="/Img/myPhoto.png" alt="Photo Of the developer.">
+                <div>
+                    <button onclick="rickRoll()" class="primaryButton" id="downloadCV">
+                        Download CV
+                    </button>
                 </div>
             </div>
-            
-
-            
-            <div id="aboutMeContainer">
-                <div id="aboutMe">
-                    <h1>About Me</h1>
-                    <p>I am a student of information technology. Currently enrolled in a BSc. IT program by Asia Pacific University. I enjoy coding and problem solving.</p>
-                </div>
-                <div id="skillContainer">
-                    <h1 id="skill">My Skills</h1>
-                    <div class="indivisualSkill">
-                        <p class="skillName">HTML</p>
-                        <div class="skillBar">
-                            <div class="skillPercentage" style="max-width:70%;"></div>
-                        </div>
-                    </div>
-                    <div class="indivisualSkill">
-                        <p class="skillName">CSS</p>
-                        <div class="skillBar">
-                            <div class="skillPercentage" style="max-width:50%;"></div>
-                        </div>
-                    </div>
-                    <div class="indivisualSkill">
-                        <p class="skillName">JAVASCRIPT</p>
-                        <div class="skillBar">
-                            <div class="skillPercentage" style="max-width:30%;"></div>
-                        </div>
-                    </div>
-                </div>
-
-            </div>
+            <!-- <div id="devPhoto">
+                <img src="/Img/myPhoto.png" alt="Photo Of the developer.">
+            </div> -->
         </div>
+
+
+
+        <div id="aboutMeContainer">
+            <div id="aboutMe">
+                <h1>About Me</h1>
+                <p>I am a student of information technology. Currently enrolled in a BSc. IT program by Asia Pacific
+                    University. I enjoy coding and problem solving. Lorem ipsum dolor sit amet consectetur adipisicing
+                    elit. Velit quasi nobis, aliquam rerum, officiis accusantium id assumenda labore eum nostrum culpa
+                    maxime non provident quam et reprehenderit error, facere repellendus magnam aspernatur recusandae
+                    vitae omnis? Dolor facere sit voluptatibus? Quasi esse odit, enim voluptate eos maxime vitae iusto
+                    quaerat necessitatibus?</p>
+            </div>
+            <div id="skillContainer">
+                <h1 id="skill">My Skills</h1>
+                <div class="indivisualSkill">
+                    <p class="skillName">HTML</p>
+                    <div class="skillBar">
+                        <div class="skillPercentage" style="max-width:70%;"></div>
+                    </div>
+                </div>
+                <div class="indivisualSkill">
+                    <p class="skillName">CSS</p>
+                    <div class="skillBar">
+                        <div class="skillPercentage" style="max-width:50%;"></div>
+                    </div>
+                </div>
+                <div class="indivisualSkill">
+                    <p class="skillName">JAVASCRIPT</p>
+                    <div class="skillBar">
+                        <div class="skillPercentage" style="max-width:30%;"></div>
+                    </div>
+                </div>
+            </div>
+            <script src="brain.js"></script>
+        </div>
+    </div>
+    <div id="navBar" class="navOff">
+        <nav>
+            <ul>
+                <li>&#9830; Home</li>
+                <li>&#9830; Services</li>
+                <li>&#9830; Gallery</li>
+                <li>&#9830; Contact</li>
+            </ul>
+        </nav>
     </div>
     <script src="brain.js"></script>
 </body>

@@ -7,74 +7,106 @@
     margin: 0px;
     padding: 0px;
     box-sizing: border-box;
+    color: white;
 }
 
-.icons{
+html{
+    /* background-color: rgb(52, 52, 87); */
+    scroll-behavior: smooth;
+    overflow-x: hidden;
+}
+
+
+.navigation {
+    height: 150px;
+    width: 150px;
+    border-radius: 50%;
+    position: fixed;
+    top: -75px;
+    left:-75px;
+    background-color: chartreuse;
+    transition: all 0.5s;
+    z-index: 9;
+}
+
+.activee{
+    transform: rotate(-0.25turn);
+    background-color: rgb(226, 17, 17);
+}
+
+
+#ham{
     position: absolute;
+    top: 64%;
+    left : 64%;
     cursor: pointer;
 }
 
-#hamburger{
-    top: 10px;
-    left: 10px;
-    height: 20px;
+#ham a{
+    text-decoration: none;
+    color: black;
 }
 
 #cancle{
-    position: fixed;
-    top: 13px;
-    left: 123px;
-    height: 15px;
-    z-index: 1;
-}
-
-#container {
-    display: flex;
-}
-
-#sidebar {
-    background-color: rgb(229 234 239);
-    border: solid #a7e3e7 2px;
-    width: 149px;
-    height: 100vh;
-    transition: transform 0.3s;
-}
-
-.sidebarAnimate {
-    transform: translate(-148px,0px);
     position: absolute;
+    top: 64%;
+    right : 64%;
+    cursor: pointer;
 }
 
-.sidebarAni{
-    position: sticky;
-    top: 0px;
+#navBar{
+    position: absolute;
+    top: 50%;
+    transition: transform 0.5s;
 }
 
-#sidebar nav {
+#navBar nav {
     padding: 25px;
 }
 
-#sidebar nav li {
-    padding: 25px 0px;
+#navBar nav li {
+    padding: 25px 0px 5px 0px;
     list-style: none; 
-}
-
-#sidebar nav li a{
-    text-decoration: none;
+    margin-left: 0px;
+    margin-bottom: 20px;
     color: black;
-    font-size: 17px;  
-    padding: 5px;
 }
 
-#sidebar nav li a:hover{
+#navBar nav li + li {
+    margin-left: 10px;
+}
+
+#navBar nav li + li + li {
+    margin-left: 23px;
+}
+
+#navBar nav li + li + li +li {
+    margin-left: 38px;
+}
+
+
+#navBar nav li:hover{
     border-bottom: 2px solid rgb(54, 240, 54);
+    cursor: pointer;
+}
+
+.navOff{
+    transform: translate(-400px);
 }
 
 #mainContent {
-    /* background-color: aqua; */
-    width: 88vw;
+    background-color: rgb(34, 25, 25);
+    width: 100vw;
+    min-height: 100vh;
     display: flex;
     flex-direction: column;
+    transform-origin: top left;
+    transition: transform 0.5s;
+}
+
+.mainRotate{
+    transform: rotate(-20deg);
+    
 }
 
 #devInfoContainer{
@@ -113,6 +145,7 @@
 
 #devInfo > div:nth-child(2) b{
     color: rgb(240, 18, 18);
+    /* color: white; */
     font-size: larger;
 }
 
@@ -157,7 +190,7 @@
     border-radius: 10px;
 }
 .skillPercentage{
-    background-color: brown;
+    background-color: rgb(243, 3, 3);
     height: 100%;
     position: absolute;
     border-radius: 10px;
