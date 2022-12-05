@@ -97,7 +97,7 @@ html{
 #mainContent {
     background-color: rgb(34, 25, 25);
     width: 100vw;
-    min-height: 100vh;
+    min-height: 110vh;
     display: flex;
     flex-direction: column;
     transform-origin: top left;
@@ -149,10 +149,13 @@ html{
     font-size: larger;
 }
 
+
+
 #devInfo > div:nth-child(3){
     font-family: 'Dosis', sans-serif;
     font-size: 6em;
 }
+
 
 #downloadCV a{
     text-decoration: none;
