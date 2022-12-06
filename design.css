@@ -13,6 +13,7 @@
 }
 
 :root{
+    --primaryColor: rgba(39,37,58,255);
     --secondaryColor : #7E52A0;
     --tertiaryColor: rgb(179, 188, 197);
     --fourthColor: #FF0035;
@@ -114,13 +115,15 @@ html{
     border: var(--fourthColor) 2px solid;
      border-color: var(--fourthColor);
      z-index: 8;
+     pointer-events: none; 
 }
 
 
 #mainContent {
     /* background-color: rgb(34, 25, 25);
      */
-     background: linear-gradient(to top left, rgb(34, 25, 25),  rgb(42, 45, 83)); 
+     /* background: linear-gradient(to top left, rgb(34, 25, 25),  rgb(42, 45, 83));  */
+     background-color: var(--primaryColor);
     max-width: 100vw;
     min-height: 110vh;
     display: flex;
@@ -171,7 +174,33 @@ html{
 #devInfo > div:nth-child(2) b{
     color: var(--fourthColor);
     font-size: larger;
+    position: relative;
 }
+
+#myName::after{
+    content: "";
+    width: 100%;
+    height: 100%;
+    background-color: var(--primaryColor);
+    border-left: var(--fourthColor) 2px solid ;
+    position: absolute;
+    animation: typing infinite steps(14) 3s;
+}
+
+@keyframes typing{
+    0%{
+        left: 0%;
+        width: 100%;
+    }
+    33%{
+        left: 100%;
+        width: 1%;
+    }
+    100%{
+
+    }
+}
+
 
 
 
