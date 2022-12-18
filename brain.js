@@ -18,6 +18,7 @@ function rickRoll() {
     window.location.replace("https://www.youtube.com/watch?v=JzvDoyW5u5g");
 }
 
+
 window.addEventListener('scroll', () => {
     var itemViewPortLocation = skillContainer.getBoundingClientRect().top;
     var viewPortHeight = window.innerHeight;
@@ -37,5 +38,12 @@ window.addEventListener('scroll', () => {
         }
     }
 });
+
+
+
+function openLink(n){
+    window.open(n, '_blank');
+}
+
 
 
