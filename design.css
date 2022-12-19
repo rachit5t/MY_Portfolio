@@ -184,7 +184,7 @@ html{
 
 #myName::after{
     content: "";
-    width: 100%;
+    width: 0%;
     height: 100%;
     background-color: var(--primaryColor);
     border-left: var(--fourthColor) 2px solid ;
@@ -199,7 +199,7 @@ html{
     }
     33%{
         left: 100%;
-        width: 1%;
+        width: 0%;
     }
     100%{
 
