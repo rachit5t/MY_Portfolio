@@ -6,7 +6,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Rachit Dhakal's Portfolio</title>
-    <link rel="stylesheet" href="design.css">
+    <link rel="stylesheet" href="./design.css">
 </head>
 
 <body>
@@ -20,9 +20,9 @@
             <nav>
                 <ul>
                     <li><a href="index.html">&#9830; Home</a></li>
-                    <li>&#9830; Services</li>
-                    <li><a href="my projects.html">&#9830;  My Projects </a></li>
-                    <li><a href="contact.html">&#9830; Contact</a></li>
+                    <!-- <li>&#9830; Services</li> -->
+                    <li><a href="my projects.html">&#9830; My Projects </a></li>
+                    <!-- <li><a href="contact.html">&#9830; Contact</a></li> -->
                 </ul>
             </nav>
         </div>
@@ -31,7 +31,7 @@
 
     <main>
         <div id="borderBright">
-            
+
         </div>
         <div id="mainContent">
             <div id="devInfoContainer">
@@ -39,17 +39,17 @@
                     <div id="hello">Hello there,</div>
                     <div>I am <b id="myName">Rachit Dhakal</b></div>
                     <div>
-                        Developer, User, Heker
+                        Bsc IT Student
                     </div>
-                    <div>
-                        <button onclick="rickRoll()" class="primaryButton" id="downloadCV">
+                    <div style="margin-top: 15px;">
+                        <a href="RachitDhakalResume.pdf" download class="primaryButton" id="downloadCV">
                             Download CV
-                        </button>
+                        </a>
                     </div>
                 </div>
                 <!-- <div id="devPhoto">
-                <img src="/Img/myPhoto.png" alt="Photo Of the developer.">
-            </div> -->
+                    <img src="/Img/developer.png" alt="Photo Of the developer.">
+                </div> -->
             </div>
 
 
@@ -58,7 +58,10 @@
                 <div id="aboutMe">
                     <h1>About Me</h1>
                     <p>I am a student of information technology. Currently enrolled in a BSc. IT program by Asia Pacific
-                        University. I enjoy coding and problem solving. I also have a basic understanding of the C, Python, and Lua programming languages. I've also created some Java GUI applications with Swing. However, my current focus is on front end development, and I am constantly working to improve my web designs. </p>
+                        University. I enjoy coding and problem solving. I also have a basic understanding of the C,
+                        Python, and Lua programming languages. I've also created some Java GUI applications with Swing.
+                        However, my current focus is on front end development, and I am constantly working to improve my
+                        web designs. </p>
                 </div>
                 <div id="skillContainer">
                     <h1 id="skill">My Skills</h1>
@@ -69,9 +72,22 @@
                         </div>
                     </div>
                     <div class="indivisualSkill">
+                        <p class="skillName">Bootstrap</p>
+                        <div class="skillBar">
+                            <div class="skillPercentage" style="max-width:60%;"></div>
+                        </div>
+                    </div>
+
+                    <div class="indivisualSkill">
                         <p class="skillName">CSS</p>
                         <div class="skillBar">
                             <div class="skillPercentage" style="max-width:50%;"></div>
+                        </div>
+                    </div>
+                    <div class="indivisualSkill">
+                        <p class="skillName">MySql</p>
+                        <div class="skillBar">
+                            <div class="skillPercentage" style="max-width:40%;"></div>
                         </div>
                     </div>
                     <div class="indivisualSkill">
@@ -80,6 +96,13 @@
                             <div class="skillPercentage" style="max-width:30%;"></div>
                         </div>
                     </div>
+                    <div class="indivisualSkill">
+                        <p class="skillName">PHP</p>
+                        <div class="skillBar">
+                            <div class="skillPercentage" style="max-width:30%;"></div>
+                        </div>
+                    </div>
+
                 </div>
                 <script src="brain.js"></script>
                 <script src="forAll.js"></script>

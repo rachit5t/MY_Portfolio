@@ -4,6 +4,7 @@ ham.addEventListener("click", ()=>{
     console.log("hello");
     document.querySelector("html").style.overflow = "hidden"
     navBar.classList.remove("navOff")
+    borderBright.classList.add("activeBorder")
 });
 
 cancle.addEventListener("click", ()=>{
@@ -11,4 +12,5 @@ cancle.addEventListener("click", ()=>{
     mainContent.classList.remove('mainRotate')
     document.querySelector("html").style.overflow = "visible"
     navBar.classList.add("navOff")
+    borderBright.classList.remove("activeBorder")
 })

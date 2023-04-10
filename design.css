@@ -10,12 +10,13 @@
     /* color: #FF0035; */
     /* color: #7FB069; */
     color: var(--tertiaryColor);
+    
 }
 
 :root{
     --primaryColor: rgba(39,37,58,255);
-    --secondaryColor : #7E52A0;
-    --tertiaryColor: rgb(179, 188, 197);
+    --secondaryColor : #8f15ec;
+    --tertiaryColor: white;
     --fourthColor: #FF0035;
 }
 
@@ -23,7 +24,7 @@ html{
     /* background-color: rgb(52, 52, 87); */
     scroll-behavior: smooth;
     overflow-x: hidden;
-    background-color: var(--secondaryColor)
+    background-color: var(--secondaryColor);
 }
 
 
@@ -102,8 +103,8 @@ html{
 }
 
 
-#navBar nav li:hover{
-    border-bottom: 2px solid rgb(54, 240, 54);
+#navBar nav li a:hover{
+    color: white;
     cursor: pointer;
 }
 
@@ -117,10 +118,13 @@ html{
     top: 0px;
     height: 100vh;
     width: 100vw;
-    border: var(--fourthColor) 2px solid;
      border-color: var(--fourthColor);
      z-index: 8;
      pointer-events: none; 
+}
+
+.activeBorder{
+    border: var(--fourthColor) 2px solid;
 }
 
 
@@ -227,6 +231,9 @@ html{
 
 #devPhoto img{
     height: 100%;
+    background-image: linear-gradient(var(--secondaryColor)
+, var(--fourthColor));
+    border-radius: 50%;
 }
 
 #aboutMeContainer{
@@ -270,16 +277,19 @@ html{
 /* Default Styles Library */
 .primaryButton{
     background-color: var(--secondaryColor);
-    color: black;
+    color: white;
     font-weight: bolder;
-    border-radius: 13px;
+    font-size: 1rem;
+    border-radius: 8px;
+    border-color: var(--secondaryColor);
     padding: 10px;
+    text-decoration: none;
 }
 
 .primaryButton:hover{
     background-color: black;
     color: white;
-    border-color: rgb(0, 255, 0);
+    border: 2px solid rgb(0, 255, 0);;
     cursor: pointer;
 }
 
