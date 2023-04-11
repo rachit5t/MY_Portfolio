@@ -245,6 +245,10 @@ html{
     margin-top: 20px;
 }
 
+#myInfo{
+    text-align: justify;
+}
+
 
 .indivisualSkill{
     margin: 15px;
