@@ -14,3 +14,5 @@ cancle.addEventListener("click", ()=>{
     navBar.classList.add("navOff")
     borderBright.classList.remove("activeBorder")
 })
+
+
