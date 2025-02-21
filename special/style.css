@@ -1,0 +1,163 @@
+*{
+    box-sizing: border-box !important;
+    margin: 0px;
+    padding: 0px;
+}
+
+#component-container{
+    height: 100vh;
+    width: 100vw;
+    border: 2px solid cyan;
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#grid-container{
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+    grid-template-rows: repeat(auto-fit, minmax(150px, 1fr));
+    height: 100%;
+    width: 100%;
+    /* background-color: #171717; */
+    background-color: #2d2929;
+    position: absolute;
+    top: 0;
+    z-index: 0;
+}
+
+.grid-item{
+    /* border: 1px solid #2f2f2f; */
+    border: 1px solid #ec90ec;
+    animation: flicker 4s infinite;
+}
+
+@keyframes grid-item {
+    0% {
+        opacity: 30%;
+    }
+
+    100%{
+        opacity: 100%;
+    }
+}
+
+.progress-bar-section{
+    position: relative;
+    z-index: 1;
+    color: red;
+    /* border: 5px solid #4d4d4d; */
+    border: 5px solid #e0a3f3;
+    border-radius: 7px;;
+    height: 50vh;
+    min-height: 400px;
+    max-height: 600px;
+    width: 50vw;
+    min-width: 60vw;
+    max-width: 100vw;
+    padding: 10px;
+    background-color: #1c1b1b;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+.progress-bar-section > h1 {
+    color: rgb(255, 0, 247);
+    text-align: center;
+    margin-bottom: 40px;
+    font-size: 1.5rem;
+}
+
+.progress-bar-section  a{
+    background-color: red;
+    color: white;
+    border: 2px solid black;
+    height: 3rem;
+    border-radius: 5px;
+    padding: 10px;
+    font-weight: bolder;
+    text-decoration: none;
+}
+
+.progress-bars-container{
+    display: flex;
+    flex-direction: column;
+    gap: 40px;
+    align-items: center;
+    height: 100%;
+    width: 100%;
+}
+
+.progress-bar{
+    height: 30px;
+    width: 80%;
+    background-color: blue;
+    background-color: #4d4d4d;
+    position: relative;
+}
+
+.progress-bar-completion{
+    height: 100%;
+    position: absolute;
+    animation: progress 2s linear forwards;
+    top: 0px;
+}
+
+.progress-bar-completion-blur{
+    height: 100%;
+    position: absolute;
+    animation: progress 2s linear forwards;
+    filter: blur(0.5rem);
+    top: 0px;
+}
+
+@keyframes progress {
+    from {
+        width: 0%;
+    }
+    to {
+        width: 100%;
+    }
+    
+}
+
+.nuclear{
+    animation: nuclear 1s infinite;
+}
+
+.nuclear-text{
+    animation: nucleartext 2s infinite;
+    background-color: black !important;
+}
+
+
+@keyframes nucleartext {
+    0% {
+        color: rgb(255, 0, 0);
+    }
+    33% {
+        color: rgb(255, 251, 0);
+    }
+    66% {
+        color: rgb(102, 255, 0);
+    }
+    100% {
+        color: rgb(255, 0, 0);
+    }
+}
+@keyframes nuclear {
+    0% {
+        border-color: rgb(255, 0, 0);
+    }
+    50% {
+        border-color: rgb(255, 251, 0);
+    }
+    100% {
+        border-color: rgb(255, 0, 0);
+    }
+}
+
+
