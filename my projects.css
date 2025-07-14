@@ -265,6 +265,12 @@
     cursor: pointer;
 }
 
+/* Fallback: Always show featured project by default */
+.featured-project {
+  opacity: 1 !important;
+  transform: none !important;
+}
+
 .project-card:hover {
     transform: translateY(-10px);
     border-color: var(--nepaliRed);

@@ -7,9 +7,14 @@ function openLink(url) {
 
 // Add modern interactions to project cards
 document.addEventListener('DOMContentLoaded', function() {
+    // Fallback: Always show all project cards on load
+    const projectCards = document.querySelectorAll('.project-card');
+    projectCards.forEach(card => {
+        card.style.display = 'block';
+    });
+
     // Category filtering functionality
     const tabButtons = document.querySelectorAll('.tab-btn');
-    const projectCards = document.querySelectorAll('.project-card');
     
     tabButtons.forEach(button => {
         button.addEventListener('click', function() {
@@ -129,11 +134,6 @@ document.addEventListener('DOMContentLoaded', function() {
     // Observe project cards and sections
     const animatedElements = document.querySelectorAll('.project-card, .featured-project, .cta-section');
     animatedElements.forEach((element, i) => {
-        element.style.opacity = '0';
-        element.style.transform = 'translateY(60px) scale(0.85) rotate(-6deg)';
-        element.style.transition = 'opacity 1.2s cubic-bezier(0.22, 1, 0.36, 1), transform 1.2s cubic-bezier(0.22, 1, 0.36, 1)';
-        element.style.willChange = 'opacity, transform';
-        observer.observe(element);
         // Add staggered delay
         element.dataset.stagger = i * 120;
     });
@@ -317,6 +317,11 @@ style.textContent = `
     .project-card, .featured-project, .cta-section {
         animation: fancyFadeIn 1.2s cubic-bezier(0.22, 1, 0.36, 1) both;
         animation-play-state: paused;
+    }
+
+    .project-card {
+      opacity: 1 !important;
+      transform: none !important;
     }
 `;
 document.head.appendChild(style);
