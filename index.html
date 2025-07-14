@@ -5,8 +5,12 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Rachit Dhakal's Portfolio</title>
+    <title>Rachit Dhakal - Web Developer & Digital Marketer</title>
     <link rel="stylesheet" href="./design.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8400860124338805"
      crossorigin="anonymous"></script>
 </head>
@@ -22,99 +26,348 @@
             <nav>
                 <ul>
                     <li><a href="index.html">&#9830; Home</a></li>
-                    <!-- <li>&#9830; Services</li> -->
                     <li><a href="my projects.html">&#9830; My Projects </a></li>
-                    <!-- <li><a href="contact.html">&#9830; Contact</a></li> -->
+                    <li><a href="contact.html">&#9830; Contact</a></li>
                 </ul>
             </nav>
         </div>
     </header>
 
-
     <main>
-        <div id="borderBright">
-
+        <div id="borderBright"></div>
+        
+        <!-- Magical Floating Consultation Button -->
+        <div class="floating-consultation-btn">
+            <div class="hand-pointer">
+                <div class="hand-finger">👆</div>
+            </div>
+            <div class="touch-effect"></div>
+            <a href="https://wa.me/9779704080664?text=Hello! I'm interested in your free consultation service for web development and digital marketing." class="magical-btn" target="_blank">
+                <div class="btn-text-container">
+                    <span class="btn-text-nepali">निःशुल्क परामर्श 💬 🎁</span>
+                    <span class="btn-text-english">Free Consultation 💬 🎁</span>
+                </div>
+            </a>
         </div>
+        
         <div id="mainContent">
             <div id="devInfoContainer">
                 <div id="devInfo">
-                    <div id="hello">Hello there,</div>
-                    <div>I am <b id="myName">Rachit Dhakal</b></div>
-                    <div>
-                        Bsc IT Student
+                    <div id="hello" class="rotating-text">
+                        <span class="text-english">Hello there,</span>
+                        <span class="text-nepali">नमस्ते स्वागतम्,</span>
                     </div>
-                    <div style="margin-top: 15px;">
-                        <!-- <a href="RachitDhakalResume.pdf" download class="primaryButton" id="downloadCV">
-                            Download CV
-                        </a> -->
-                        <a href="#" download class="primaryButton" id="downloadCV">
-                            Download CV
+                    <div>I am <b id="myName">Rachit Dhakal</b></div>
+                    <div id="title">Full-Stack Web Developer & Digital Marketer</div>
+                    <div id="subtitle">Freelancer | Laravel | WordPress | React</div>
+                    <div class="quick-stats">
+                        <div class="stat-item">
+                            <span class="stat-number">3+</span>
+                            <span class="stat-label">Years Experience</span>
+                        </div>
+                        <div class="stat-item">
+                            <span class="stat-number">50+</span>
+                            <span class="stat-label">Projects Completed</span>
+                        </div>
+                        <div class="stat-item">
+                            <span class="stat-number">7AM-11PM</span>
+                            <span class="stat-label">Available Hours</span>
+                        </div>
+                    </div>
+                    <div style="margin-top: 25px;">
+                        <a href="contact.html" class="primaryButton" id="contactMe">
+                            Get In Touch
                         </a>
                     </div>
                 </div>
-                <!-- <div id="devPhoto">
-                    <img src="/Img/developer.png" alt="Photo Of the developer.">
-                </div> -->
+                <div id="devPhoto">
+                    <img src="graduation_image.jpg" alt="Rachit Dhakal - Graduation Photo">
+                </div>
             </div>
 
-
-
             <div id="aboutMeContainer">
+                <div id="servicesContainer">
+                    <h1 class="rotating-text">
+                        <span class="text-english">My Services</span>
+                        <span class="text-nepali">मेरा सेवाहरू</span>
+                    </h1>
+                    <div class="services-grid">
+                        <div class="service-card featured">
+                            <div class="service-icon">💡</div>
+                            <h3 class="rotating-text">
+                                <span class="text-english">Technical Consultation</span>
+                                <span class="text-nepali">तकनीकी परामर्श</span>
+                            </h3>
+                            <p>Free consultation for web development, digital marketing, and technology solutions. Get expert advice on your project requirements and implementation strategies.</p>
+                            <div class="service-features">
+                                <span class="feature-tag">Web Development</span>
+                                <span class="feature-tag">Digital Marketing</span>
+                                <span class="feature-tag">Technology Planning</span>
+                            </div>
+                            <a href="https://wa.me/9779704080664?text=Hello! I'm interested in your free consultation service for web development and digital marketing." class="service-cta featured-cta" target="_blank">
+                                <div class="hand-pointer"><div class="hand-finger">👆</div></div>
+                                <div class="touch-effect"></div>
+                                <span class="rotating-text">
+                                    <span class="text-english">Get Free Consultation</span>
+                                    <span class="text-nepali">निःशुल्क परामर्श लिनुहोस्</span>
+                                </span>
+                                <span class="cta-icon">🎁</span>
+                            </a>
+                        </div>
+
+                        <div class="service-card">
+                            <div class="service-icon">🌐</div>
+                            <h3 class="rotating-text">
+                                <span class="text-english">Web Development</span>
+                                <span class="text-nepali">वेब डेभलपमेन्ट</span>
+                            </h3>
+                            <p>Custom websites and web applications built with modern technologies. From simple landing pages to complex e-commerce solutions.</p>
+                            <div class="service-features">
+                                <span class="feature-tag">Responsive Design</span>
+                                <span class="feature-tag">E-commerce</span>
+                                <span class="feature-tag">CMS Development</span>
+                            </div>
+                            <a href="https://wa.me/9779704080664?text=Hello! I'm interested in your Web Development services. I need a custom website/web application built with modern technologies." class="service-cta web-dev-cta" target="_blank">
+                                <div class="hand-pointer"><div class="hand-finger">👆</div></div>
+                                <div class="touch-effect"></div>
+                                <span class="rotating-text">
+                                    <span class="text-english">Start Now</span>
+                                    <span class="text-nepali">अहिले सुरु गर्नुहोस्</span>
+                                </span>
+                                <span class="cta-icon">💻</span>
+                            </a>
+                        </div>
+
+                        <div class="service-card">
+                            <div class="service-icon">📱</div>
+                            <h3 class="rotating-text">
+                                <span class="text-english">Digital Marketing</span>
+                                <span class="text-nepali">डिजिटल मार्केटिङ</span>
+                            </h3>
+                            <p>Comprehensive digital marketing services including social media management, content creation, and promotional campaigns.</p>
+                            <div class="service-features">
+                                <span class="feature-tag">Social Media</span>
+                                <span class="feature-tag">Content Creation</span>
+                                <span class="feature-tag">Video Marketing</span>
+                            </div>
+                            <a href="https://wa.me/9779704080664?text=Hello! I'm interested in your Digital Marketing services. I need help with social media management, content creation, and promotional campaigns." class="service-cta marketing-cta" target="_blank">
+                                <div class="hand-pointer"><div class="hand-finger">👆</div></div>
+                                <div class="touch-effect"></div>
+                                <span class="rotating-text">
+                                    <span class="text-english">Start Marketing</span>
+                                    <span class="text-nepali">मार्केटिङ सुरु गर्नुहोस्</span>
+                                </span>
+                                <span class="cta-icon">📈</span>
+                            </a>
+                        </div>
+
+                        <div class="service-card">
+                            <div class="service-icon">🎨</div>
+                            <h3 class="rotating-text">
+                                <span class="text-english">Graphic Design</span>
+                                <span class="text-nepali">ग्राफिक डिजाइन</span>
+                            </h3>
+                            <p>Professional graphic design services for businesses. Creating logos, posters, social media graphics, and branding materials.</p>
+                            <div class="service-features">
+                                <span class="feature-tag">Logo Design</span>
+                                <span class="feature-tag">Marketing Materials</span>
+                                <span class="feature-tag">Brand Identity</span>
+                            </div>
+                            <a href="https://wa.me/9779704080664?text=Hello! I'm interested in your Graphic Design services. I need professional logos, posters, social media graphics, and branding materials." class="service-cta design-cta" target="_blank">
+                                <div class="hand-pointer"><div class="hand-finger">👆</div></div>
+                                <div class="touch-effect"></div>
+                                <span class="rotating-text">
+                                    <span class="text-english">Start Design</span>
+                                    <span class="text-nepali">डिजाइन सुरु गर्नुहोस्</span>
+                                </span>
+                                <span class="cta-icon">🎨</span>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
                 <div id="aboutMe">
-                    <h1>About Me</h1>
-                    <p id="myInfo">I am a student of information technology. Currently enrolled in a BSc. IT program by Asia Pacific
-                        University. I enjoy coding and problem solving. I also have a basic understanding of the C,
-                        Python, and Lua programming languages. I've also created some Java GUI applications with Swing.
-                        However, my current focus is on front end development, and I am constantly working to improve my
-                        web designs. </p>
+                    <h1 class="rotating-text">
+                        <span class="text-english">About Me</span>
+                        <span class="text-nepali">मेरो बारेमा</span>
+                    </h1>
+                    <div class="about-grid">
+                        <div class="about-card">
+                            <div class="about-icon">🎯</div>
+                            <h3 class="rotating-text">
+                                <span class="text-english">Passionate Developer</span>
+                                <span class="text-nepali">उत्साही डेभलपर</span>
+                            </h3>
+                            <p>Full-Stack Web Developer with 1+ years at Virtual Technology Private Limited, now freelancing with expertise in Laravel, WordPress, and React.</p>
+                        </div>
+                        <div class="about-card">
+                            <div class="about-icon">🎓</div>
+                            <h3 class="rotating-text">
+                                <span class="text-english">Educated Professional</span>
+                                <span class="text-nepali">शिक्षित पेशेवर</span>
+                            </h3>
+                            <p>BSc (Hons) in Information Technology from Infomax College, affiliated with Asia Pacific University of Technology and Innovation.</p>
+                        </div>
+                        <div class="about-card">
+                            <div class="about-icon">🎨</div>
+                            <h3 class="rotating-text">
+                                <span class="text-english">Creative Marketer</span>
+                                <span class="text-nepali">सृजनशील मार्केटर</span>
+                            </h3>
+                            <p>Beyond coding, I create engaging reel ads and promotional posters for businesses, combining technical skills with creative vision.</p>
+                        </div>
+                    </div>
                 </div>
+
+                <div id="experienceContainer">
+                    <h1>Experience</h1>
+                    <div class="timeline">
+                        <div class="timeline-item current">
+                            <div class="timeline-marker"></div>
+                            <div class="timeline-content">
+                                <h3>Freelance Web Developer & Digital Marketer</h3>
+                                <span class="timeline-date">2021 - Present</span>
+                                <p>Working independently on diverse projects, specializing in Laravel, WordPress, and React development. Creating engaging digital marketing content.</p>
+                            </div>
+                        </div>
+                        <div class="timeline-item">
+                            <div class="timeline-marker"></div>
+                            <div class="timeline-content">
+                                <h3>Web Developer</h3>
+                                <span class="timeline-company">Virtual Technology Private Limited</span>
+                                <span class="timeline-date">2023 - 2024</span>
+                                <p>Developed and maintained web applications using modern technologies. Collaborated with cross-functional teams.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
                 <div id="skillContainer">
-                    <h1 id="skill">My Skills</h1>
-                    <div class="indivisualSkill">
-                        <p class="skillName">HTML</p>
-                        <div class="skillBar">
-                            <div class="skillPercentage" style="max-width:70%;"></div>
-                        </div>
-                    </div>
-                    <div class="indivisualSkill">
-                        <p class="skillName">Bootstrap</p>
-                        <div class="skillBar">
-                            <div class="skillPercentage" style="max-width:60%;"></div>
-                        </div>
-                    </div>
-
-                    <div class="indivisualSkill">
-                        <p class="skillName">CSS</p>
-                        <div class="skillBar">
-                            <div class="skillPercentage" style="max-width:50%;"></div>
-                        </div>
-                    </div>
-                    <div class="indivisualSkill">
-                        <p class="skillName">MySql</p>
-                        <div class="skillBar">
-                            <div class="skillPercentage" style="max-width:40%;"></div>
-                        </div>
-                    </div>
-                    <div class="indivisualSkill">
-                        <p class="skillName">JAVASCRIPT</p>
-                        <div class="skillBar">
-                            <div class="skillPercentage" style="max-width:30%;"></div>
-                        </div>
-                    </div>
-                    <div class="indivisualSkill">
-                        <p class="skillName">PHP</p>
-                        <div class="skillBar">
-                            <div class="skillPercentage" style="max-width:30%;"></div>
+                    <h1 id="skill">Technical Skills</h1>
+                    
+                    <div class="skill-category">
+                        <h3>Frontend Development</h3>
+                        <div class="skills-grid">
+                            <div class="skill-card">
+                                <h4><i class="fab fa-html5 skill-icon"></i>HTML5 & CSS3</h4>
+                                <p>The foundation of web development. I create semantic, accessible HTML structures and modern CSS layouts with responsive design principles.</p>
+                            </div>
+                            
+                            <div class="skill-card">
+                                <h4><i class="fab fa-js-square skill-icon"></i>JavaScript (ES6+)</h4>
+                                <p>Modern JavaScript for dynamic web applications. I use ES6+ features, async/await, and modern frameworks to create interactive user experiences.</p>
+                            </div>
+                            
+                            <div class="skill-card">
+                                <h4><i class="fab fa-react skill-icon"></i>React.js</h4>
+                                <p>Building modern, component-based user interfaces. I create reusable components, manage state efficiently, and integrate with REST APIs.</p>
+                            </div>
+                            
+                            <div class="skill-card">
+                                <h4><i class="fab fa-bootstrap skill-icon"></i>Bootstrap</h4>
+                                <p>Rapid UI development with Bootstrap framework. I create responsive, mobile-first designs using Bootstrap's component library and grid system.</p>
+                            </div>
                         </div>
                     </div>
 
+                    <div class="skill-category">
+                        <h3>Backend Development</h3>
+                        <div class="skills-grid">
+                            <div class="skill-card">
+                                <h4><i class="fab fa-laravel skill-icon"></i>Laravel</h4>
+                                <p>PHP framework for elegant web applications. I build robust backend systems with MVC architecture, authentication, and database management.</p>
+                            </div>
+                            
+                            <div class="skill-card">
+                                <h4><i class="fab fa-wordpress skill-icon"></i>WordPress</h4>
+                                <p>Content management system development. I create custom themes, plugins, and manage WordPress sites with custom functionality and optimization.</p>
+                            </div>
+                            
+                            <div class="skill-card">
+                                <h4><i class="fab fa-php skill-icon"></i>PHP</h4>
+                                <p>Server-side scripting language. I develop dynamic web applications, handle form processing, and create custom web solutions.</p>
+                            </div>
+                            
+                            <div class="skill-card">
+                                <h4><i class="fas fa-database skill-icon"></i>MySQL</h4>
+                                <p>Relational database management. I design database schemas, write efficient queries, and manage data relationships for web applications.</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="skill-category">
+                        <h3>Digital Marketing</h3>
+                        <div class="skills-grid">
+                            <div class="skill-card">
+                                <h4><span class="skill-icon">📱</span>Content Creation</h4>
+                                <p>Creating engaging digital content for social media platforms. I develop compelling copy, visual content, and multimedia materials that drive engagement.</p>
+                            </div>
+                            
+                            <div class="skill-card">
+                                <h4><span class="skill-icon">📢</span>Social Media Marketing</h4>
+                                <p>Strategic social media campaigns and community management. I plan and execute marketing strategies across multiple platforms to increase brand awareness.</p>
+                            </div>
+                            
+                            <div class="skill-card">
+                                <h4><span class="skill-icon">🎬</span>Video Editing</h4>
+                                <p>Creating compelling video content and reel ads. I edit videos, add motion graphics, and produce engaging content for social media platforms.</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="skill-category">
+                        <h3>Design & Creative Tools</h3>
+                        <div class="skills-grid">
+                            <div class="skill-card">
+                                <h4><span class="skill-icon">🎨</span>Adobe Photoshop</h4>
+                                <p>Professional image editing and graphic design. I create stunning visuals, edit photos, and design marketing materials with industry-standard tools.</p>
+                            </div>
+                            
+                            <div class="skill-card">
+                                <h4><span class="skill-icon">🎬</span>Adobe Premiere Pro</h4>
+                                <p>Professional video editing and post-production. I create high-quality video content, commercials, and promotional videos with advanced editing techniques.</p>
+                            </div>
+                            
+                            <div class="skill-card">
+                                <h4><span class="skill-icon">✨</span>Canva</h4>
+                                <p>Creative design platform for social media graphics, presentations, and marketing materials. I create engaging visual content quickly and efficiently.</p>
+                            </div>
+                        </div>
+                    </div>
                 </div>
-                <script src="brain.js"></script>
-                <script src="forAll.js"></script>
+
+                <div id="educationContainer">
+                    <h1>Education</h1>
+                    <div class="education-grid">
+                        <div class="education-card">
+                            <div class="education-icon"><i class="fas fa-graduation-cap"></i></div>
+                            <div class="education-content">
+                                <h3>BSc (Hons) Information Technology</h3>
+                                <div class="education-details">
+                                    <span class="education-institution">Infomax College of IT and Management</span>
+                                    <span class="education-affiliation">Affiliated with Asia Pacific University of Technology and Innovation</span>
+                                    <span class="education-date">2021 - 2024</span>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="education-card">
+                            <div class="education-icon"><i class="fas fa-school"></i></div>
+                            <div class="education-content">
+                                <h3>Secondary Education</h3>
+                                <div class="education-details">
+                                    <span class="education-institution">PARTIVA SECONDARY SCHOOL</span>
+                                    <span class="education-affiliation">2018-2020</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
     </main>
     <script src="brain.js"></script>
+    <script src="forAll.js"></script>
 </body>
 
 </html>

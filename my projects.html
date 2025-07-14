@@ -5,9 +5,12 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Rachit Dhakal's Portfolio</title>
+    <title>Rachit Dhakal - Projects Portfolio</title>
     <link rel="stylesheet" href="design.css">
     <link rel="stylesheet" href="my projects.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 </head>
 
 <body>
@@ -21,118 +24,285 @@
             <nav>
                 <ul>
                     <li><a href="index.html">&#9830; Home</a></li>
-                    <!-- <li>&#9830; Services</li> -->
                     <li><a href="my projects.html">&#9830; My Projects </a></li>
-                    <!-- <li><a href="contact.html">&#9830; Contact</a></li> -->
+                    <li><a href="contact.html">&#9830; Contact</a></li>
                 </ul>
             </nav>
         </div>
     </header>
 
-
     <main>
-        <div id="borderBright">
-
-        </div>
+        <div id="borderBright"></div>
         <div id="mainContent">
-            <h1 style="margin-top: 40px; align-self: center;"><b>Projects</b> Done By Me</h1>
-            <h1 class="contentHeading">Website's : </h1>
-            <div class="gallerySection" >
-                <div class="sectionItems" onclick="openLink('/Projects/Website/DhakalFancy/index.html')">
-                    <div class="projectTitle">
-                        <h2>HTML, CSS, JS</h2>
-                    </div>
+            <div class="projects-hero">
+                <h1>My <span class="highlight">Creative</span> Work</h1>
+                <p>Showcasing my passion for web development, digital marketing, and innovative solutions</p>
+            </div>
 
-                    <div class="imgOfItems" style="background-image: url(/Img/DhakalFancy.JPG);">
-
+            <!-- Featured Project -->
+            <div class="featured-project">
+                <div class="featured-content">
+                    <div class="featured-text">
+                        <span class="featured-badge">Featured Project</span>
+                        <h2>Dhakal Fancy Store</h2>
+                        <p>A complete e-commerce solution built with modern web technologies. Features include responsive design, product catalog, shopping cart, and secure checkout system.</p>
+                        <div class="tech-stack-featured">
+                            <span class="tech-tag">HTML5</span>
+                            <span class="tech-tag">CSS3</span>
+                            <span class="tech-tag">JavaScript</span>
+                            <span class="tech-tag">Bootstrap</span>
+                        </div>
                     </div>
-
-                </div>
-                <div class="sectionItems">
-                    <div class="projectTitle">
-                        <h2>Asp Dot Net Core</h2>
-                    </div>
-                    <div class="imgOfItems" style="background-image: url(/Img/ASPNET.JPG);">
-
-                    </div>
-                </div>
-                <div class="sectionItems">
-                    <div class="projectTitle">
-                        <h2>PHP Mysql</h2>
-                    </div>
-                    <div class="imgOfItems" style="background-image: url(/Img/PHPSQL.JPG);">
-
-                    </div>
-                </div>
-                <div class="sectionItems">
-                    <div class="projectTitle">
-                        <h2>Comming Soon...</h2>
-                    </div>
-                    <div class="imgOfItems">
+                    <div class="featured-image">
+                        <img src="/Img/DhakalFancy.JPG" alt="Dhakal Fancy Store">
+                        <div class="image-overlay">
+                            <span class="view-project">View Project</span>
+                        </div>
                     </div>
                 </div>
             </div>
-            <h1 class="contentHeading">Desktop Applications : </h1>
-            <div class="gallerySection">
-                <div class="sectionItems">
-                    <div class="projectTitle">
-                        <h2>Java Swing</h2>
+
+            <!-- Project Categories -->
+            <div class="project-categories">
+                <div class="category-tabs">
+                    <button class="tab-btn active" data-category="all">All Projects</button>
+                    <button class="tab-btn" data-category="web">Web Development</button>
+                    <button class="tab-btn" data-category="desktop">Desktop Apps</button>
+                    <button class="tab-btn" data-category="marketing">Digital Marketing</button>
+                </div>
+            </div>
+
+            <!-- Projects Grid -->
+            <div class="projects-grid">
+                <!-- Web Development Projects -->
+                <div class="project-card" data-category="web">
+                    <div class="project-image">
+                        <img src="/Img/ASPNET.JPG" alt="E-Commerce Platform">
+                        <div class="project-overlay">
+                            <div class="overlay-content">
+                                <h3>E-Commerce Platform</h3>
+                                <p>Full-featured online store with payment integration</p>
+                            </div>
+                        </div>
                     </div>
-                    <div class="imgOfItems" style="background-image: url(/Img/CourierMgmt.JPG);">
+                    <div class="project-info">
+                        <h3>E-Commerce Platform</h3>
+                        <p>ASP.NET Core, C#, SQL Server</p>
+                        <div class="project-status">Completed</div>
                     </div>
                 </div>
-                <div class="sectionItems">
-                    <div class="projectTitle">
-                        <h2>Comming Soon...</h2>
+
+                <div class="project-card" data-category="web">
+                    <div class="project-image">
+                        <img src="/Img/PHPSQL.JPG" alt="Content Management System">
+                        <div class="project-overlay">
+                            <div class="overlay-content">
+                                <h3>Content Management System</h3>
+                                <p>Custom CMS with user management and content editing</p>
+                            </div>
+                        </div>
                     </div>
-                    <div class="imgOfItems" >
+                    <div class="project-info">
+                        <h3>Content Management System</h3>
+                        <p>PHP, MySQL, Bootstrap</p>
+                        <div class="project-status">Completed</div>
                     </div>
                 </div>
-                <div class="sectionItems">
-                    <div class="projectTitle">
-                        <h2>Comming Soon...</h2>
+
+                <div class="project-card" data-category="web">
+                    <div class="project-image">
+                        <img src="school_site.png" alt="School Website">
+                        <div class="project-overlay">
+                            <div class="overlay-content">
+                                <h3>School Website</h3>
+                                <p>Modern educational institution website with student portal</p>
+                            </div>
+                        </div>
                     </div>
-                    <div class="imgOfItems">
+                    <div class="project-info">
+                        <h3>School Website</h3>
+                        <p>HTML5, CSS3, JavaScript</p>
+                        <div class="project-status">Completed</div>
                     </div>
                 </div>
-                <div class="sectionItems">
-                    <div class="projectTitle">
-                        <h2>Comming Soon...</h2>
+
+                <!-- Desktop Applications -->
+                <div class="project-card" data-category="desktop">
+                    <div class="project-image">
+                        <img src="/Img/CourierMgmt.JPG" alt="Courier Management System">
+                        <div class="project-overlay">
+                            <div class="overlay-content">
+                                <h3>Courier Management System</h3>
+                                <p>Desktop application for courier tracking and management</p>
+                            </div>
+                        </div>
                     </div>
-                    <div class="imgOfItems">
+                    <div class="project-info">
+                        <h3>Courier Management System</h3>
+                        <p>Java Swing, MySQL</p>
+                        <div class="project-status">Completed</div>
+                    </div>
+                </div>
+
+                <!-- Commented out CLI Applications for future reference -->
+                <!--
+                <div class="project-card" data-category="console">
+                    <div class="project-image">
+                        <img src="/Img/InsurenceSystem.JPG" alt="Insurance Management System">
+                        <div class="project-overlay">
+                            <div class="overlay-content">
+                                <h3>Insurance Management System</h3>
+                                <p>Console-based insurance policy management system</p>
+                                <div class="overlay-actions">
+                                    <button class="overlay-btn">View Details</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="project-info">
+                        <h3>Insurance Management System</h3>
+                        <p>C Programming</p>
+                        <div class="project-status">Completed</div>
+                    </div>
+                </div>
+
+                <div class="project-card" data-category="console">
+                    <div class="project-image">
+                        <img src="/Img/LoanMgmt.JPG" alt="Loan Management System">
+                        <div class="project-overlay">
+                            <div class="overlay-content">
+                                <h3>Loan Management System</h3>
+                                <p>Python-based loan tracking and calculation system</p>
+                                <div class="overlay-actions">
+                                    <button class="overlay-btn">View Details</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="project-info">
+                        <h3>Loan Management System</h3>
+                        <p>Python</p>
+                        <div class="project-status">Completed</div>
+                    </div>
+                </div>
+
+                <div class="project-card" data-category="console">
+                    <div class="project-image">
+                        <img src="/Img/DueDate.JPG" alt="Due Date Calculator">
+                        <div class="project-overlay">
+                            <div class="overlay-content">
+                                <h3>Due Date Calculator</h3>
+                                <p>Utility for calculating project deadlines and due dates</p>
+                                <div class="overlay-actions">
+                                    <button class="overlay-btn">View Details</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="project-info">
+                        <h3>Due Date Calculator</h3>
+                        <p>Python</p>
+                        <div class="project-status">Completed</div>
+                    </div>
+                </div>
+
+                <div class="project-card" data-category="console">
+                    <div class="project-image">
+                        <img src="/Img/RandomFile.JPG" alt="Random File Generator">
+                        <div class="project-overlay">
+                            <div class="overlay-content">
+                                <h3>Random File Generator</h3>
+                                <p>Tool for generating test files with random content</p>
+                                <div class="overlay-actions">
+                                    <button class="overlay-btn">View Details</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="project-info">
+                        <h3>Random File Generator</h3>
+                        <p>Python</p>
+                        <div class="project-status">Completed</div>
+                    </div>
+                </div>
+                -->
+
+                <!-- Digital Marketing Projects -->
+                <div class="project-card" data-category="marketing">
+                    <div class="project-image">
+                        <img src="canva_moving_vehicle.png" alt="Canva Moving Vehicle Video">
+                        <div class="project-overlay">
+                            <div class="overlay-content">
+                                <h3>Canva Moving Vehicle Video</h3>
+                                <p>Kids nursery rhymes with animated vehicle moving effects</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="project-info">
+                        <h3>Canva Moving Vehicle Video</h3>
+                        <p>Canva, Video Animation</p>
+                        <div class="project-status">Completed</div>
+                    </div>
+                </div>
+
+                <div class="project-card" data-category="marketing">
+                    <div class="project-image">
+                        <img src="social_media.jpg" alt="Social Media Campaigns">
+                        <div class="project-overlay">
+                            <div class="overlay-content">
+                                <h3>Social Media Campaigns</h3>
+                                <p>Engaging content creation and social media management</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="project-info">
+                        <h3>Social Media Campaigns</h3>
+                        <p>Content Creation, Video Editing</p>
+                        <div class="project-status">Ongoing</div>
+                    </div>
+                </div>
+                <div class="project-card" data-category="marketing">
+                    <div class="project-image">
+                        <img src="video_ads.jpg" alt="Reel Ads Production">
+                        <div class="project-overlay">
+                            <div class="overlay-content">
+                                <h3>Reel Ads Production</h3>
+                                <p>Creative video content and motion graphics</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="project-info">
+                        <h3>Reel Ads Production</h3>
+                        <p>Video Editing, Motion Graphics</p>
+                        <div class="project-status">Ongoing</div>
+                    </div>
+                </div>
+                <div class="project-card" data-category="marketing">
+                    <div class="project-image">
+                        <img src="business_poster.png" alt="Business Posters">
+                        <div class="project-overlay">
+                            <div class="overlay-content">
+                                <h3>Business Posters</h3>
+                                <p>Professional graphic design and branding materials</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="project-info">
+                        <h3>Business Posters</h3>
+                        <p>Graphic Design, Branding</p>
+                        <div class="project-status">Ongoing</div>
                     </div>
                 </div>
             </div>
-            <h1 class="contentHeading">Console Based Applications: </h1>
-            <div class="gallerySection">
-                <div class="sectionItems">
-                    <div class="projectTitle">
-                        <h2>Insurence Management System In "C"</h2>
-                    </div>
-                    <div class="imgOfItems" style="background-image: url(/Img/InsurenceSystem.JPG);">
-                    </div>
-                </div>
-                <div class="sectionItems">
-                    <div class="projectTitle">
-                        <h2>Loan Management System In "Python"</h2>
-                    </div>
-                    <div class="imgOfItems" style="background-image: url(/Img/LoanMgmt.JPG);">
-                    </div>
-                </div>
-                <div class="sectionItems">
-                    <div class="projectTitle">
-                        <h2>Due Date Calculator</h2>
-                    </div>
-                    <div class="imgOfItems" style="background-image: url(/Img/DueDate.JPG);">
-                    </div>
-                </div>
-                <div class="sectionItems">
-                    <div class="projectTitle">
-                        <h2>Random File Generator</h2>
-                    </div>
-                    <div class="imgOfItems" style="background-image: url(/Img/RandomFile.JPG);">
-                    </div>
-                </div>
+
+            <!-- Call to Action -->
+            <div class="cta-section">
+                <h2>Ready to Start Your Project?</h2>
+                <p>Let's collaborate and bring your ideas to life with modern web solutions and creative digital marketing.</p>
+                <a href="contact.html" class="cta-button">
+                    <span>Get In Touch</span>
+                    <span class="cta-icon">💬</span>
+                </a>
             </div>
         </div>
     </main>

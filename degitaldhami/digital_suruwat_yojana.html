@@ -1,0 +1,438 @@
+<!DOCTYPE html>
+<html lang="ne">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Digital Dhami - डिजिटल सुरुवात योजना</title>
+    <link rel="stylesheet" href="../design.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        body {
+            background: linear-gradient(135deg, #0a0a0a 60%, #003893 100%);
+            color: #fff;
+            font-family: 'Poppins', 'Inter', sans-serif;
+            min-height: 100vh;
+            margin: 0;
+        }
+        .magic-glow {
+            text-shadow: 0 0 12px #ffd700, 0 0 24px #003893;
+        }
+        .scroll-container {
+            display: flex;
+            width: 100vw;
+        }
+        .timeline-bar {
+            width: 90px;
+            min-width: 60px;
+            background: rgba(10,10,20,0.85);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            position: fixed;
+            top: 0; left: 0; bottom: 0;
+            z-index: 10;
+            box-shadow: 0 0 24px #00389344;
+            padding-top: 60px;
+        }
+        .timeline-bar .timeline-track {
+            position: absolute;
+            left: 72%;
+            top: 100px;
+            width: 8px;
+            min-width: 8px;
+            background: linear-gradient(180deg, #2a3550 0%, #1a2233 100%), #2a3550;
+            border-radius: 4px;
+            z-index: 1;
+            box-shadow: 0 0 16px #00389388;
+            overflow: visible;
+            display: block;
+        }
+        .timeline-bar .timeline-track::before {
+            content: '';
+            position: absolute;
+            left: 50%;
+            top: 0;
+            width: 8px;
+            height: var(--timeline-fill, 0%);
+            background: linear-gradient(180deg, #ffd700 0%, #ffe066 80%, #ffd700 100%);
+            border-radius: 4px;
+            transform: translateX(-50%);
+            z-index: 2;
+            box-shadow: 0 0 24px #ffd700cc, 0 0 32px #ffd70088;
+            pointer-events: none;
+        }
+        .timeline-bar .timeline-track[data-active-idx]::after {
+            content: '';
+            position: absolute;
+            left: 50%;
+            width: 12px;
+            border-radius: 6px;
+            transform: translateX(-50%);
+            z-index: 3;
+            background: #ffe066;
+            box-shadow: 0 0 24px #00ff88cc, 0 0 32px #ffd70088;
+            pointer-events: none;
+            top: var(--timeline-active-top, 0px);
+            height: var(--timeline-active-height, 0px);
+            transition: top 0.4s, height 0.4s;
+        }
+        .timeline-bar .timeline-item {
+            position: relative;
+            z-index: 2;
+            margin: 0;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            height: 120px;
+        }
+        .timeline-bar .circle {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            background: #181818;
+            border: 4px solid #2a3550;
+            box-shadow: 0 0 8px #00389344;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem;
+            color: #2a3550;
+            transition: border 0.3s, box-shadow 0.3s, background 0.3s, color 0.3s;
+            position: relative;
+            z-index: 4;
+        }
+        .timeline-bar .circle.completed {
+            border: 4px solid #ffd700;
+            color: #ffd700;
+            background: #181818;
+            box-shadow: 0 0 16px #ffd700cc, 0 0 32px #ffd70088;
+        }
+        .timeline-bar .circle.upcoming {
+            border: 4px solid #2a3550;
+            color: #2a3550;
+            background: #181818;
+            box-shadow: 0 0 8px #00389344;
+        }
+        .timeline-bar .circle.active {
+            border: 4px solid #ffd700;
+            color: #ffd700;
+            background: #181818;
+            box-shadow: 0 0 24px #00ff88cc, 0 0 32px #ffd700cc;
+        }
+        .main-content {
+            margin-left: 90px;
+            width: 100%;
+        }
+        section.slide {
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            padding: 60px 24px 60px 24px;
+            scroll-margin-top: 0px;
+            position: relative;
+        }
+        .logo-bar {
+            display: flex;
+            align-items: center;
+            gap: 18px;
+            margin-bottom: 24px;
+        }
+        .logo-bar .logo-placeholder {
+            width: 60px; height: 60px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, #ffd700 60%, #003893 100%);
+            box-shadow: 0 0 24px #ffd70088, 0 0 32px #00389344;
+            display: flex; align-items: center; justify-content: center;
+            font-size: 2.2rem;
+            color: #111;
+            font-weight: 900;
+        }
+        .logo-bar .brand {
+            font-size: 1.7rem;
+            font-weight: 700;
+            color: #ffd700;
+            text-shadow: 0 0 12px #003893, 0 0 24px #ffd700;
+        }
+        .logo-bar .tagline {
+            font-size: 1.1rem;
+            color: #00e0e0;
+            font-weight: 500;
+            margin-left: 8px;
+            text-shadow: 0 0 8px #003893;
+        }
+        .feature-cards {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 24px;
+            justify-content: center;
+            margin: 32px 0 0 0;
+        }
+        .feature-card {
+            background: rgba(20,20,40,0.85);
+            border-radius: 18px;
+            box-shadow: 0 0 16px #00389344, 0 0 32px #ffd70022;
+            padding: 28px 24px 18px 24px;
+            min-width: 220px;
+            max-width: 270px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            transition: transform 0.3s, box-shadow 0.3s;
+            border: 2px solid transparent;
+            position: relative;
+        }
+        .feature-card:hover {
+            transform: scale(1.04) translateY(-6px);
+            box-shadow: 0 0 32px #ffd70088, 0 0 48px #00389344;
+            border: 2px solid #ffd700;
+        }
+        .feature-card .icon {
+            font-size: 2.1rem;
+            margin-bottom: 10px;
+            color: #ffd700;
+            filter: drop-shadow(0 0 8px #003893);
+        }
+        .feature-card .title {
+            font-size: 1.1rem;
+            font-weight: 600;
+            color: #ffd700;
+            margin-bottom: 8px;
+            text-align: center;
+        }
+        .feature-card .desc {
+            font-size: 0.98rem;
+            color: #fff;
+            text-align: center;
+        }
+        .compare-table {
+            margin: 32px 0 0 0;
+            background: rgba(20,20,40,0.85);
+            border-radius: 16px;
+            box-shadow: 0 0 16px #00389344;
+            padding: 18px 24px;
+            color: #fff;
+            width: 100%;
+            max-width: 600px;
+        }
+        .compare-table th, .compare-table td {
+            padding: 10px 16px;
+            border-bottom: 1px solid #ffd70044;
+            text-align: center;
+        }
+        .compare-table th {
+            color: #ffd700;
+            font-size: 1.1rem;
+        }
+        .compare-table tr:last-child td {
+            border-bottom: none;
+        }
+        .compare-table .highlight {
+            background: linear-gradient(90deg, #ffd70044, #00389322);
+            font-weight: 700;
+            color: #ffd700;
+        }
+        .feature-highlight {
+            background: linear-gradient(90deg, #00389344, #ffd70022);
+            border-radius: 12px;
+            padding: 12px 18px;
+            margin: 18px 0 0 0;
+            color: #ffd700;
+            font-weight: 600;
+            box-shadow: 0 0 12px #00389344;
+        }
+        .callout {
+            margin-top: 18px;
+            background: linear-gradient(90deg, #ffd70022, #00389322);
+            border-radius: 10px;
+            padding: 10px 16px;
+            color: #00e0e0;
+            font-size: 1rem;
+            box-shadow: 0 0 8px #00389344;
+        }
+        @media (max-width: 900px) {
+            .slide h1, .slide h2 { font-size: 1.3rem; }
+            .slide { padding: 24px 4vw; }
+            .timeline-bar { width: 60px; }
+            .feature-cards { gap: 12px; }
+            .main-content { margin-left: 60px; }
+        }
+        @media (max-width: 600px) {
+            .slide h1, .slide h2 { font-size: 1.1rem; }
+            .slide { padding: 12px 2vw; }
+            .timeline-bar { width: 40px; }
+            .feature-cards { flex-direction: column; gap: 8px; }
+            .main-content { margin-left: 40px; }
+        }
+    </style>
+</head>
+<body>
+    <div class="scroll-container">
+        <aside class="timeline-bar">
+            <div class="timeline-track" id="timelineTrack"></div>
+            <div class="timeline-item"><div class="circle active" data-slide="0">🏆</div></div>
+            <div class="timeline-item"><div class="circle" data-slide="1">⚖️</div></div>
+            <div class="timeline-item"><div class="circle" data-slide="2">🌐</div></div>
+        </aside>
+        <main class="main-content">
+            <!-- Section 0: Overview -->
+            <section class="slide" id="slide-0">
+                <div class="presentation-card" style="max-width:80vw; max-height:80vh; min-width:80vw; min-height:480px; width:100%; height:100%; margin:0 auto; border-radius:32px; box-shadow:0 0 64px #003893cc, 0 0 32px #ffd70055; padding:48px 32px 64px 32px; display:flex; flex-direction:column; align-items:center; position:relative; overflow:auto; background: url('../business_poster_digital_dhami.jpg'); background-size: cover; background-position: center bottom -220px;">
+                    <div style="flex:1; display:flex; flex-direction:column; align-items:center; justify-content:center; min-height:320px; width:100%;">
+                        <span style="font-size:3.2rem; font-weight:900; color:#ffd700; text-shadow:0 0 24px #003893, 0 0 32px #000, 0 0 8px #ffd700; letter-spacing:2px; margin-bottom:18px;">Digital Dhami</span>
+                        <span style="font-size:1.35rem; color:#00e0e0; font-weight:600; text-shadow:0 0 12px #003893, 0 0 8px #000; margin-bottom:10px; letter-spacing:1px;">iडिजिटल दुनियामा जादु देखाउदै</span>
+                        <span style="font-size:1.15rem; color:#ffd700; font-family:'Poppins','Inter',sans-serif; font-weight:700; text-shadow:0 0 8px #003893, 0 0 8px #000; letter-spacing:1px;">डिजिटल सुरुवात योजना</span>
+                    </div>
+                    <!-- Background image is now set on the card itself -->
+                    <div class="page-number" style="position: absolute; bottom: 18px; left: 0; right: 0; text-align: center; font-size: 1.1rem; color: #ffd700; opacity: 0.85; letter-spacing: 2px;">
+                        1/3
+                    </div>
+                </div>
+            </section>
+            <!-- Section 1: Comparison -->
+            <section class="slide" id="slide-1">
+                <div class="presentation-card" style="max-width:80vw; max-height:80vh; min-width:80vw; min-height:480px; width:100%; height:100%; margin:0 auto; background:rgba(20,20,40,0.97); border-radius:32px; box-shadow:0 0 64px #003893cc, 0 0 32px #ffd70055; padding:48px 32px 64px 32px; display:flex; flex-direction:column; align-items:center; position:relative; overflow:auto;">
+                    <h1 class="magic-glow">किन Digital Dhami?</h1>
+                    <table class="compare-table">
+                        <tr>
+                            <th>Feature</th>
+                            <th>Traditional</th>
+                            <th class="highlight">Digital Dhami</th>
+                        </tr>
+                        <tr>
+                            <td>Website</td>
+                            <td>Static, costly, slow</td>
+                            <td class="highlight">Dynamic, fast, modern</td>
+                        </tr>
+                        <tr>
+                            <td>Domain/Hosting</td>
+                            <td>Separate, confusing</td>
+                            <td class="highlight">All-in-one, managed</td>
+                        </tr>
+                        <tr>
+                            <td>Branding</td>
+                            <td>Missing/extra cost</td>
+                            <td class="highlight">Included, pro setup</td>
+                        </tr>
+                        <tr>
+                            <td>Google Listing</td>
+                            <td>Rarely done</td>
+                            <td class="highlight">Guaranteed</td>
+                        </tr>
+                        <tr>
+                            <td>SEO</td>
+                            <td>Ignored</td>
+                            <td class="highlight">Standard</td>
+                        </tr>
+                        <tr>
+                            <td>Promo Video</td>
+                            <td>Not included</td>
+                            <td class="highlight">Free</td>
+                        </tr>
+                        <tr>
+                            <td>Support</td>
+                            <td>Extra charge</td>
+                            <td class="highlight">1 month free</td>
+                        </tr>
+                    </table>
+                    <div class="callout">अब Digital Dhami सँग, सबै कुरा hassle-free!</div>
+                    <div class="page-number" style="position: absolute; bottom: 18px; left: 0; right: 0; text-align: center; font-size: 1.1rem; color: #ffd700; opacity: 0.85; letter-spacing: 2px;">
+                        2/3
+                    </div>
+                </div>
+            </section>
+            <!-- Section 2: First Feature -->
+            <section class="slide" id="slide-2">
+                <div class="presentation-card" style="max-width:80vw; max-height:80vh; min-width:80vw; min-height:480px; width:100%; height:100%; margin:0 auto; background:rgba(20,20,40,0.97); border-radius:32px; box-shadow:0 0 64px #003893cc, 0 0 32px #ffd70055; padding:48px 32px 64px 32px; display:flex; flex-direction:column; align-items:center; position:relative; overflow:auto;">
+                    <div class="logo-bar">
+                        <div class="logo-placeholder">DD</div>
+                        <span class="brand magic-glow">Digital Dhami</span>
+                    </div>
+                    <div class="feature-icon">🌐</div>
+                    <h2>WordPress Website (1–5 Pages)</h2>
+                    <div class="feature-highlight">"Your business, your website, your brand!"</div>
+                    <ul>
+                        <li>आकर्षक, responsive, र SEO-friendly</li>
+                        <li>Easy to update, mobile-ready</li>
+                        <li>Fast loading, secure</li>
+                    </ul>
+                    <div class="callout">Example: पसल, क्लिनिक, कन्सल्टेन्सी, कोचिंग, बुटिक, आदि।</div>
+                    <div class="page-number" style="position: absolute; bottom: 18px; left: 0; right: 0; text-align: center; font-size: 1.1rem; color: #ffd700; opacity: 0.85; letter-spacing: 2px;">
+                        3/3
+                    </div>
+                </div>
+            </section>
+        </main>
+    </div>
+    <script>
+        // Timeline navigation logic
+        const circles = document.querySelectorAll('.timeline-bar .circle');
+        const sections = document.querySelectorAll('section.slide');
+        function setActive(idx) {
+            circles.forEach((c, i) => {
+                c.classList.remove('active', 'completed', 'upcoming');
+                if (i < idx) {
+                    c.classList.add('completed');
+                } else if (i === idx) {
+                    c.classList.add('active');
+                } else {
+                    c.classList.add('upcoming');
+                }
+            });
+        }
+        function scrollToSection(idx) {
+            sections[idx].scrollIntoView({ behavior: 'smooth' });
+        }
+        circles.forEach((circle, idx) => {
+            circle.addEventListener('click', () => scrollToSection(idx));
+        });
+        function updateTimelineBar() {
+            const items = document.querySelectorAll('.timeline-bar .timeline-item');
+            const track = document.getElementById('timelineTrack');
+            if (!items.length || !track) return;
+            // Fixed values
+            const iconSize = 40; // px
+            const spacing = 120; // px (height of .timeline-item)
+            const top = iconSize / 2;
+            const height = spacing * (items.length - 1) + iconSize;
+            track.style.height = height + 'px';
+            track.style.top = '';
+            track.style.left = '';
+            track.style.bottom = '';
+            track.style.transform = '';
+            // Fill bar height based on scroll
+            let scrollPos = window.scrollY || window.pageYOffset;
+            let found = false;
+            let docHeight = document.body.scrollHeight - window.innerHeight;
+            let percent = docHeight > 0 ? Math.min(1, Math.max(0, scrollPos / docHeight)) : 0;
+            track.style.setProperty('--timeline-fill', (percent * 100) + '%');
+            // Highlight active circle and set active bar
+            let activeIdx = 0;
+            sections.forEach((section, idx) => {
+                const rect = section.getBoundingClientRect();
+                if (!found && rect.top <= window.innerHeight/2 && rect.bottom > window.innerHeight/2) {
+                    setActive(idx);
+                    activeIdx = idx;
+                    found = true;
+                }
+            });
+            // Set active bar position (for the glowing active section)
+            const activeCircle = items[activeIdx].querySelector('.circle');
+            const circleTop = activeCircle.offsetTop + activeCircle.offsetHeight/2 - barRect.top;
+            let nextCircleTop = circleTop;
+            if (activeIdx < items.length-1) {
+                const nextCircle = items[activeIdx+1].querySelector('.circle');
+                nextCircleTop = nextCircle.offsetTop + nextCircle.offsetHeight/2 - barRect.top;
+            }
+            track.setAttribute('data-active-idx', activeIdx);
+            track.style.setProperty('--timeline-active-top', circleTop + 'px');
+            track.style.setProperty('--timeline-active-height', (nextCircleTop - circleTop) + 'px');
+        }
+        window.addEventListener('scroll', updateTimelineBar);
+        window.addEventListener('resize', updateTimelineBar);
+        setTimeout(updateTimelineBar, 100);
+    </script>
+</body>
+</html> 
