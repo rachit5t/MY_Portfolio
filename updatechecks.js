@@ -10,11 +10,97 @@
     
     const PREMIUM_STORAGE_KEY = 'electionGame_premiumData';
     const INVITE_SHOWN_KEY = 'electionGame_inviteShown';
+    const INVITE_DAILY_TRACKING_KEY = 'electionGame_inviteDailyTracking';
+    const MAX_SHOWS_PER_DAY = 2;
     
     // Share content
     const SHARE_MESSAGE = "Lastai funny cha yo game, neta haru banera khelna milni🤣, you also try";
     const APP_LINK = "https://play.google.com/store/apps/details?id=com.play.netagiri.strategy";
     const FULL_MESSAGE = SHARE_MESSAGE + "\n\n" + APP_LINK;
+    const FACEBOOK_APP_ID = '881361778068205';
+
+    function getTodayKey() {
+        const now = new Date();
+        const year = now.getFullYear();
+        const month = String(now.getMonth() + 1).padStart(2, '0');
+        const day = String(now.getDate()).padStart(2, '0');
+        return `${year}-${month}-${day}`;
+    }
+
+    function loadDailyTracking() {
+        try {
+            const raw = localStorage.getItem(INVITE_DAILY_TRACKING_KEY);
+            if (!raw) {
+                return {
+                    dayKey: getTodayKey(),
+                    count: 0,
+                    lastShownAt: null
+                };
+            }
+
+            const parsed = JSON.parse(raw);
+            if (!parsed || typeof parsed !== 'object') {
+                throw new Error('Invalid tracking format');
+            }
+
+            return {
+                dayKey: parsed.dayKey || getTodayKey(),
+                count: Number(parsed.count) || 0,
+                lastShownAt: parsed.lastShownAt || null
+            };
+        } catch (error) {
+            console.warn('[InviteFriends] Failed to parse daily tracking. Resetting.', error);
+            return {
+                dayKey: getTodayKey(),
+                count: 0,
+                lastShownAt: null
+            };
+        }
+    }
+
+    function saveDailyTracking(tracking) {
+        try {
+            localStorage.setItem(INVITE_DAILY_TRACKING_KEY, JSON.stringify(tracking));
+        } catch (error) {
+            console.error('[InviteFriends] Failed to save daily tracking:', error);
+        }
+    }
+
+    function canShowModalToday() {
+        const todayKey = getTodayKey();
+        const tracking = loadDailyTracking();
+
+        if (tracking.dayKey !== todayKey) {
+            const resetTracking = {
+                dayKey: todayKey,
+                count: 0,
+                lastShownAt: tracking.lastShownAt || null
+            };
+            saveDailyTracking(resetTracking);
+            return true;
+        }
+
+        return tracking.count < MAX_SHOWS_PER_DAY;
+    }
+
+    function markModalShownNow() {
+        const todayKey = getTodayKey();
+        const tracking = loadDailyTracking();
+
+        const updated = tracking.dayKey === todayKey
+            ? {
+                dayKey: todayKey,
+                count: tracking.count + 1,
+                lastShownAt: Date.now()
+            }
+            : {
+                dayKey: todayKey,
+                count: 1,
+                lastShownAt: Date.now()
+            };
+
+        saveDailyTracking(updated);
+    }
     
     // Check if this is a returning user (not first open)
     const premiumData = localStorage.getItem(PREMIUM_STORAGE_KEY);
@@ -30,9 +116,16 @@
         console.log('[InviteFriends] Already shown this session - skipping');
         return;
     }
+
+    // Show at most 2 times per day (persisted in localStorage)
+    if (!canShowModalToday()) {
+        console.log('[InviteFriends] Daily limit reached (2/day) - skipping');
+        return;
+    }
     
     // Mark as shown for this session
     sessionStorage.setItem(INVITE_SHOWN_KEY, 'true');
+    markModalShownNow();
     window.__inviteFriendsShown = true;
     
     console.log('[InviteFriends] Returning user detected - showing invite modal');
@@ -77,15 +170,23 @@
             openUrl('whatsapp://send?text=' + encoded);
         },
         
-        messenger: function() {
-            const encoded = encodeURIComponent(APP_LINK);
-            // Messenger share link
-            openUrl('fb-messenger://share/?link=' + encoded);
+        messenger: async function() {
+            const encodedLink = encodeURIComponent(APP_LINK);
+            const encodedText = encodeURIComponent(SHARE_MESSAGE);
+
+            // Messenger deep-link reliably supports link; for text we copy to clipboard first.
+            await copyToClipboard(FULL_MESSAGE);
+            showToast('Message copied! Paste it in Messenger 📋');
+            openUrl('fb-messenger://share/?link=' + encodedLink + '&app_id=' + FACEBOOK_APP_ID + '&text=' + encodedText);
         },
         
-        facebook: function() {
+        facebook: async function() {
             const encodedUrl = encodeURIComponent(APP_LINK);
             const encodedQuote = encodeURIComponent(SHARE_MESSAGE);
+
+            // Facebook sharer supports quote on many surfaces; keep clipboard fallback for consistency.
+            await copyToClipboard(FULL_MESSAGE);
+            showToast('Message copied! Paste if Facebook does not prefill 📋');
             // Facebook sharer with quote
             openUrl('https://www.facebook.com/sharer/sharer.php?u=' + encodedUrl + '&quote=' + encodedQuote);
         },
@@ -242,7 +343,7 @@
         
         // Title
         var title = document.createElement('div');
-        title.textContent = 'Enjoying the Game?';
+        title.textContent = 'Game man paryo?';
         title.style.cssText = `
             font-size: 22px;
             font-weight: bold;
@@ -253,7 +354,7 @@
         
         // Message
         var message = document.createElement('div');
-        message.innerHTML = 'Invite your friends to play!<br><span style="font-size: 12px; color: #94a3b8;">Choose your favorite app to share 👇</span>';
+        message.innerHTML = 'Sathi haru lai bolaunuhos<br><span style="font-size: 12px; color: #94a3b8;">Choose your favorite app to share 👇</span>';
         message.style.cssText = `
             font-size: 15px;
             margin-bottom: 18px;
@@ -282,7 +383,6 @@
         whatsappBtn.style.color = 'white';
         whatsappBtn.addEventListener('click', function() {
             shareHandlers.whatsapp();
-            overlay.remove();
         });
         
         // Messenger button
@@ -298,7 +398,6 @@
         messengerBtn.style.color = 'white';
         messengerBtn.addEventListener('click', function() {
             shareHandlers.messenger();
-            overlay.remove();
         });
         
         row1.appendChild(whatsappBtn);
@@ -325,7 +424,6 @@
         facebookBtn.style.color = 'white';
         facebookBtn.addEventListener('click', function() {
             shareHandlers.facebook();
-            overlay.remove();
         });
         
         // Instagram button
@@ -341,7 +439,6 @@
         instagramBtn.style.color = 'white';
         instagramBtn.addEventListener('click', function() {
             shareHandlers.instagram(overlay);
-            overlay.remove();
         });
         
         row2.appendChild(facebookBtn);
@@ -364,22 +461,23 @@
         `;
         otherBtn.addEventListener('click', async function() {
             await shareHandlers.other();
-            overlay.remove();
         });
         
         // Maybe Later button
         var laterBtn = document.createElement('button');
         laterBtn.textContent = 'Maybe Later';
         laterBtn.style.cssText = `
-            background: transparent;
-            color: #64748b;
-            border: 1px solid #334155;
-            padding: 10px 20px;
-            font-size: 14px;
+            background: linear-gradient(135deg, #f59e0b 0%, #d97706 100%);
+            color: #0b0f1a;
+            border: 2px solid #fbbf24;
+            padding: 12px 20px;
+            font-size: 15px;
+            font-weight: bold;
             border-radius: 8px;
             cursor: pointer;
             width: 100%;
-            transition: background 0.2s, color 0.2s;
+            transition: transform 0.2s, box-shadow 0.2s, filter 0.2s;
+            box-shadow: 0 4px 14px rgba(245, 158, 11, 0.45);
         `;
         
         laterBtn.addEventListener('click', function() {
@@ -387,12 +485,12 @@
         });
         
         laterBtn.addEventListener('mouseover', function() {
-            laterBtn.style.background = '#1e293b';
-            laterBtn.style.color = '#94a3b8';
+            laterBtn.style.filter = 'brightness(1.08)';
+            laterBtn.style.transform = 'translateY(-1px)';
         });
         laterBtn.addEventListener('mouseout', function() {
-            laterBtn.style.background = 'transparent';
-            laterBtn.style.color = '#64748b';
+            laterBtn.style.filter = 'brightness(1)';
+            laterBtn.style.transform = 'translateY(0)';
         });
         
         // Assemble modal
